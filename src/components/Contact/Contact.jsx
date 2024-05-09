@@ -1,0 +1,28 @@
+import css from "./Contact.module.css";
+import { FaUser } from "react-icons/fa6";
+import { FaPhone } from "react-icons/fa6";
+
+export default function Contact({ data: { id, name, number }, onDelete }) {
+  return (
+    <div className={css.contact}>
+      <div className={css.info}>
+        <p className={css.article}>
+          <FaUser className={css.icon} />
+          {name}
+        </p>
+        <p className={css.article}>
+          <FaPhone className={css.icon} />
+          {number}
+        </p>
+      </div>
+      <button
+        className={css.btn}
+        onClick={() => {
+          onDelete(id);
+        }}
+      >
+        Delete
+      </button>
+    </div>
+  );
+}
